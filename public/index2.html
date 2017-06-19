@@ -1,0 +1,45 @@
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title> Scraping </title>
+    <link type="text/css" href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="MyCtrl" ng-init="cargarResultados()">
+    <h1> Scraping Stack Builders </h1>
+
+    <div>
+        <div class="span4">
+            <label> Keywords Search by Title </label>
+            <input type='text' ng-model='keywords' ng-change='changeKeywords()'>
+        </div>
+
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Rank </th>
+            <th> Title </th>
+            <th> Url </th>
+            <th> Points </th>
+            <th> Username </th>
+            <th> Comments </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr ng-repeat="item in resultados | orderBy:propertyName:reverse">-->
+        <tr ng-repeat="item in resultados | orderBy: sorterFunc :reverse ">
+            <td> {{item.rank}} </td>
+            <td> {{item.title}} </td>
+            <td> {{item.url}} </td>
+            <td> {{item.points}} </td>
+            <td> {{item.username}} </td>
+            <td> {{item.comments}} </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
